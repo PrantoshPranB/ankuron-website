@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ankuron (অংকুৰণ) — the Assamese keyboard</title>
+  <meta name="description" content="Type Assamese the way it sounds. Ankuron is a phonetic Assamese keyboard for Mac, Windows, iPhone and iPad, with its own Assamese font: joined letters, the real ৰ, and the hard cases done right.">
+  <meta property="og:title" content="Ankuron (অংকুৰণ) — the Assamese keyboard">
+  <meta property="og:description" content="Type Assamese the way it sounds: asamiiyaa → অসমীয়া.">
+  <meta property="og:image" content="https://prantoshpranb.github.io/ankuron-website/assets/img/og.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#cb1c00">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <!-- The download sign-up Worker (downloads-worker/); every download asks for a name and email first. -->
+  <meta name="downloads-api" content="https://ankuron-downloads.prantoshpranb.workers.dev">
+  <script defer src="js/engine.js"></script>
+  <script defer src="js/site.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Ankuron home">
+      <img src="assets/img/emblem.png" alt="" width="40" height="40">
+      <span>Ankuron <span class="as">অংকুৰণ</span></span>
+    </a>
+    <nav>
+      <a href="#try">Try it</a>
+      <a href="#features">Features</a>
+      <a href="#font">Font</a>
+      <a href="#guide">Typing guide</a>
+      <a class="btn small" href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero: an English word types itself and Assamese grows above it, as in the video. -->
+    <section class="hero cloth">
+      <div class="hero-text">
+        <p class="eyebrow">The Assamese keyboard</p>
+        <h1>Type Assamese<br>the way it <em>sounds</em>.</h1>
+        <div class="typer" aria-live="off">
+          <div class="typer-as as" id="hero-as">অসমীয়া</div>
+          <div class="typer-en"><span id="hero-en">asamiiyaa</span><span class="caret"></span></div>
+        </div>
+        <p class="lede">Ankuron turns English letters into Assamese script as you type.
+          Joined letters build themselves, ৰ is always the Assamese ৰ, and it comes with
+          its own Assamese font.</p>
+        <div class="actions">
+          <a class="btn" href="#download">Download</a>
+          <a class="btn ghost" href="#try">Try it here</a>
+        </div>
+        <p class="platforms">Mac · Windows · iPhone &amp; iPad · Android coming</p>
+      </div>
+      <div class="hero-art">
+        <img src="assets/img/emblem.png" alt="The Ankuron emblem: a gamosa-red অ with two tea leaves sprouting from it" width="640" height="640">
+        <p class="meaning"><span class="as">অংকুৰণ</span> means “sprouting”.</p>
+      </div>
+    </section>
+    <div class="band" role="presentation"></div>
+
+    <!-- Live demo: the same rules as the apps, ported from core/transliterator.c. -->
+    <section id="try" class="section">
+      <h2>Try it now</h2>
+      <p class="sub">Type in English letters below. This is the same engine the Mac, Windows and
+        iPhone versions use, running in your browser.</p>
+      <div class="demo">
+        <label class="demo-in">
+          <span class="label">You type</span>
+          <textarea id="demo-input" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off"
+            placeholder="asamiiyaa">bihu gaamocaa jaapi caah</textarea>
+        </label>
+        <div class="demo-out">
+          <span class="label">You get</span>
+          <div id="demo-output" class="as" lang="as" aria-live="polite"></div>
+          <button id="demo-copy" class="copy" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="chips" aria-label="Examples">
+        <button type="button" data-try="asamiiyaa">asamiiyaa</button>
+        <button type="button" data-try="pradhaan">pradhaan</button>
+        <button type="button" data-try="krriSNa">krriSNa</button>
+        <button type="button" data-try="boixiSTya">boixiSTya</button>
+        <button type="button" data-try="brahmaputra">brahmaputra</button>
+        <button type="button" data-try="e`yaapal">e`yaapal</button>
+        <button type="button" data-try="arddhek">arddhek</button>
+        <button type="button" data-try="aakaaNgXaa">aakaaNgXaa</button>
+        <button type="button" data-try="2026">2026</button>
+      </div>
+      <p class="hint">Capitals matter for a few letters: <code>t</code> ত, <code>T</code> ট ·
+        <code>n</code> ন, <code>N</code> ণ · <code>s</code> স, <code>S</code> ষ ·
+        <code>r</code> ৰ, <code>R</code> ড়. See the <a href="#guide">typing guide</a>.</p>
+    </section>
+
+    <!-- The launch video. -->
+    <section class="section video-section">
+      <div class="video-frame">
+        <video controls preload="none" playsinline poster="assets/video/poster.jpg">
+          <source src="assets/video/ankuron.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- What makes it different: the cases where Assamese typing usually breaks. -->
+    <section id="features" class="section">
+      <h2>Joined letters, done right</h2>
+      <p class="sub">Type the letters of a conjunct and Ankuron joins them. These are the cases
+        where Assamese typing usually breaks; each one is checked by Ankuron's tests.</p>
+      <div class="cases">
+        <article class="case">
+          <div class="case-pair"><code>pradhaan</code><span class="as">প্ৰধান</span></div>
+          <h3>Conjuncts build themselves</h3>
+          <p>ৰ-ফলা, ৰেফ and য-ফলা join any letter; the standard Assamese pairs join on their
+            own, and other pairs stay apart (<code>raamdhenu</code> <span class="as">ৰামধেনু</span>).</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>sandhyaa</code><span class="as">সন্ধ্যা</span></div>
+          <h3>Three-letter stacks</h3>
+          <p><span class="as">ৰাষ্ট্ৰ আকাঙ্ক্ষা মন্ত্ৰী বস্ত্ৰ</span>: each drawn as one clean
+            joined shape.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>arddhek</code><span class="as">অৰ্দ্ধেক</span></div>
+          <h3>ৰেফ over a stack</h3>
+          <p>The ৰ্ becomes the hook above দ্ধ, not a loose letter beside it.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>e`yaapal</code><span class="as">এ্যাপল</span></div>
+          <h3>এ্যা for loanwords</h3>
+          <p>য-ফলা joins the vowel cleanly, with no stray ় or broken ্ য, while
+            <code>eyaa</code> stays <span class="as">এয়া</span>.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>twa</code><span class="as">ত্ব</span></div>
+          <h3>ব-ফলা</h3>
+          <p><code>w</code> after a consonant is ব-ফলা: <code>swaamii</code>
+            <span class="as">স্বামী</span>, written with ব so every font joins it.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>r</code><span class="as">ৰ</span></div>
+          <h3>The Assamese ৰ and ৱ</h3>
+          <p>Always ৰ (U+09F0) and ৱ, never the Bengali <span class="bn" lang="bn">র</span>. <span class="as">ৰু ৰূপ হ্ৰু</span>
+            each get their own Assamese shape.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>bhou</code><span class="as">ভৌ</span></div>
+          <h3>Vowels that don't split</h3>
+          <p>ো and ৌ are written as one character each, so backspace steps back a letter
+            and never leaves a broken ে + া.</p>
+        </article>
+        <article class="case">
+          <div class="case-pair"><code>123.5</code><span class="as">১২৩.৫</span></div>
+          <h3>Numbers and the দাড়ি</h3>
+          <p>Assamese digits, decimal points kept inside numbers, and a full stop
+            becomes <span class="as">।</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- What comes with Ankuron. -->
+    <section class="section cloth-soft">
+      <h2>Everything that comes with Ankuron</h2>
+      <p class="sub">One typing engine in every version, so Assamese comes out the same on every device.</p>
+      <div class="kit">
+        <article>
+          <div class="kit-icon" aria-hidden="true"></div>
+          <h3>Mac</h3>
+          <p>A real macOS input source. Switch with Ctrl+Space or the Globe key; the word you're
+            typing is underlined until the next space, punctuation or Return, and Esc keeps
+            the English letters.</p>
+        </article>
+        <article>
+          <div class="kit-icon" aria-hidden="true"></div>
+          <h3>Windows</h3>
+          <p>A small tray app for Windows 10 and 11 that types into any program. Toggle with
+            Alt+Shift or a click on the tray icon (red অ on, grey off), and start it with Windows.</p>
+        </article>
+        <article>
+          <div class="kit-icon" aria-hidden="true"></div>
+          <h3>iPhone &amp; iPad</h3>
+          <p>A keyboard with Assamese hints on its keys and a bar that shows the English letters
+            of the word you're typing, plus a setup app that installs the font.</p>
+        </article>
+        <article>
+          <div class="kit-icon" aria-hidden="true"></div>
+          <h3>Android</h3>
+          <p>In the works, with the same engine and the same typing rules.</p>
+        </article>
+        <article>
+          <div class="kit-icon as" aria-hidden="true">অ</div>
+          <h3>The Ankuron font</h3>
+          <p>An Assamese typeface in regular and bold, installed with the keyboard and free
+            to share under the SIL Open Font License.</p>
+        </article>
+        <article>
+          <div class="kit-icon" aria-hidden="true"></div>
+          <h3>Private by design</h3>
+          <p>Everything you type is converted on your device. Ankuron doesn't send your
+            typing anywhere.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- The font. -->
+    <section id="font" class="section font-section">
+      <div class="font-copy">
+        <h2>Its own Assamese font</h2>
+        <p>Ankuron <span class="as">অংকুৰণ</span>, in <span class="as">সাধাৰণ</span> and
+          <span class="as">ডাঠ</span>, is an Assamese typeface made from Noto Serif Bengali. It
+          declares Assamese as its language, draws every common conjunct, ৰ-ফলা and ৰেফ as a
+          joined shape, and is drawn 15% larger than Noto so Assamese lines up with English
+          capitals at the same size.</p>
+        <p>It's free to use, share and modify under the SIL Open Font License 1.1.</p>
+        <div class="actions">
+          <a class="btn ghost" href="assets/fonts/Ankuron-Regular.ttf" download>Regular (.ttf)</a>
+          <a class="btn ghost" href="assets/fonts/Ankuron-Bold.ttf" download>Bold (.ttf)</a>
+          <a class="textlink" href="assets/fonts/OFL.txt">Licence</a>
+        </div>
+      </div>
+      <div class="specimen" lang="as">
+        <div class="spec-big as">অংকুৰণ</div>
+        <div class="spec-row as"><span>বিহু গামোচা জাপি চাহ</span></div>
+        <div class="spec-row as bold"><span>ব্ৰহ্মপুত্ৰ · লুইত · ৰামধেনু</span></div>
+        <div class="spec-row as"><span>ক্ষ জ্ঞ ষ্ট্ৰ ন্ধ্য ঙ্ক্ষ ৰ্দ্ধ</span></div>
+        <div class="spec-mix"><span class="as">অসমীয়া</span> and English, side by side</div>
+      </div>
+    </section>
+
+    <!-- Typing guide, from the README. -->
+    <section id="guide" class="section">
+      <h2>Typing guide</h2>
+      <p class="sub">Type how a word sounds. Click any key to try it in the box above.</p>
+      <div class="guide-group">
+        <h3>Vowels</h3>
+        <p class="note">After a consonant a vowel becomes its sign: <code>k</code> + <code>aa</code> = <span class="as">কা</span>. A plain <code>a</code> after a consonant is silent.</p>
+        <div class="keys" id="guide-vowels"></div>
+      </div>
+      <div class="guide-group">
+        <h3>Consonants</h3>
+        <div class="keys" id="guide-consonants"></div>
+      </div>
+      <div class="guide-group">
+        <h3>Signs, numbers and punctuation</h3>
+        <div class="keys" id="guide-signs"></div>
+      </div>
+      <ul class="rules">
+        <li>Consonants typed together form the standard conjuncts:
+          <code>xikSaa</code> <span class="as">শিক্ষা</span>, <code>bidyaa</code>
+          <span class="as">বিদ্যা</span>, <code>dharma</code> <span class="as">ধৰ্ম</span>.</li>
+        <li>Type <code>`</code> to force a হলন্ত (<code>kam`laa</code> <span class="as">কম্লা</span>);
+          <code>`y</code> after a vowel gives the loanword এ্যা.</li>
+        <li><code>y</code> is য় on its own and য-ফলা after a consonant (<code>bidyaa</code>).
+          <code>w</code> is ৱ on its own and ব-ফলা after a consonant (<code>twa</code>).</li>
+        <li>Capitals only matter for <code>T D N S X R H G</code>; any other capital types the same as lower case.</li>
+      </ul>
+    </section>
+
+    <!-- Download. -->
+    <section id="download" class="section cloth-soft">
+      <h2>Get Ankuron</h2>
+      <div class="downloads">
+        <article class="dl">
+          <h3>Mac</h3>
+          <p class="req">macOS 13 or later</p>
+          <button class="btn" type="button" data-download="mac">Download</button>
+          <ol>
+            <li>Unzip and move <b>Ankuron.app</b> to <b>~/Library/Input Methods</b>
+              (in Finder: Go › Go to Folder…, then type that path).</li>
+            <li>Double-click the two Ankuron fonts and click Install.</li>
+            <li>System Settings › Keyboard › Input Sources › Edit › + › Assamese › Ankuron.</li>
+            <li>Switch with Ctrl+Space or the Globe key.</li>
+          </ol>
+          <details class="blocked">
+            <summary>Ankuron isn't in the list, or macOS blocks it?</summary>
+            <p>This early version isn't notarized by Apple yet, so macOS holds back the
+              download. Open Terminal, paste this, press Return, then log out and back in:</p>
+            <code class="cmd">xattr -dr com.apple.quarantine ~/Library/Input\ Methods/Ankuron.app</code>
+          </details>
+        </article>
+        <article class="dl">
+          <h3>Windows</h3>
+          <p class="req">Windows 10 or 11, 64-bit</p>
+          <button class="btn" type="button" data-download="windows">Download</button>
+          <ol>
+            <li>Run <b>Ankuron-Setup.exe</b>; it also installs the font.</li>
+            <li>A tray icon appears: red অ means on, grey means off.</li>
+            <li>Toggle with Alt+Shift; right-click the icon for “Start with Windows”.</li>
+          </ol>
+        </article>
+        <article class="dl soon">
+          <h3>iPhone &amp; iPad</h3>
+          <p class="req">Coming soon</p>
+          <ol>
+            <li>Settings › General › Keyboard › Keyboards › Add New Keyboard › Ankuron.</li>
+            <li>In any app, hold the globe key and pick Ankuron.</li>
+          </ol>
+        </article>
+        <article class="dl soon">
+          <h3>Android</h3>
+          <p class="req">In the works</p>
+          <p>The same engine and typing rules, on Android phones and tablets.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="band" role="presentation"></div>
+  <footer class="footer">
+    <div class="brand">
+      <img src="assets/img/emblem.png" alt="" width="32" height="32">
+      <span>Ankuron <span class="as">অংকুৰণ</span></span>
+    </div>
+    <p>Type Assamese the way it sounds.</p>
+    <p class="fine">The Ankuron font is licensed under the SIL Open Font License 1.1 and is made from Noto Serif Bengali.</p>
+  </footer>
+
+  <!-- Download sign-up: required before every download. -->
+  <dialog id="signup" class="signup" aria-labelledby="signup-title">
+    <form id="signup-form" novalidate>
+      <button class="close" type="button" value="cancel" aria-label="Close">×</button>
+      <img src="assets/img/emblem.png" alt="" width="56" height="56">
+      <h3 id="signup-title">Download Ankuron for <span data-platform-name>Mac</span></h3>
+      <p class="signup-sub">Sign up to download. It takes a few seconds.</p>
+      <label>Name
+        <input name="name" autocomplete="name" required maxlength="100">
+      </label>
+      <label>Email
+        <input name="email" type="email" autocomplete="email" required maxlength="200">
+      </label>
+      <!-- Hidden from people; bots fill it in. -->
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="error" role="alert" hidden></p>
+      <button class="btn" type="submit">Sign up and download</button>
+      <p class="fine">We use your name and email only to count downloads, and never share them.</p>
+    </form>
+    <div id="signup-done" class="signup-done" hidden>
+      <img src="assets/img/emblem.png" alt="" width="56" height="56">
+      <h3>Thank you, <span data-person></span>!</h3>
+      <p>You're signed up. Ankuron for <span data-platform-name>Mac</span> isn't available to
+        download just yet. Please check back soon.</p>
+      <button class="btn ghost close" type="button">Close</button>
+    </div>
+  </dialog>
+</body>
+</html>
