@@ -29,10 +29,26 @@ async function typeHero() {
 }
 if (!reducedMotion) typeHero();
 
-/* Live demo. */
+/* Live demo, limited to MAX_WORDS words (and the textarea's maxlength); the apps have no limit. */
+const MAX_WORDS = 20;
 const input = $("#demo-input");
 const output = $("#demo-output");
-const render = () => { output.textContent = convert(input.value); };
+const count = $("#demo-count");
+function render() {
+  if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+  const words = [...input.value.matchAll(/\S+/g)];
+  if (words.length > MAX_WORDS) {
+    const last = words[MAX_WORDS - 1];
+    input.value = input.value.slice(0, last.index + last[0].length);
+    words.length = MAX_WORDS;
+  }
+  const full = words.length >= MAX_WORDS;
+  count.classList.toggle("full", full);
+  count.innerHTML = full
+    ? `${MAX_WORDS} / ${MAX_WORDS} words. <a href="#download">Download Ankuron</a> to type as much as you like.`
+    : `${words.length} / ${MAX_WORDS} words`;
+  output.textContent = convert(input.value);
+}
 input.addEventListener("input", render);
 render();
 
